@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
+
 function Square({ value, onSquareClick, className }) {
   const markclass = value === "X" ? "x-mark" : value === "O" ? "o-mark" : " ";
 
@@ -19,7 +20,7 @@ function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function playSound(type) {
-    const audio = new Audio(`/sound/${type}.wav`);
+    const audio = new Audio(`./assets/sound/${type}.wav`);
     audio.play();
     console.log(audio);
   }
