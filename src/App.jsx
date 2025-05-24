@@ -32,11 +32,11 @@ function Board() {
     const winner = calculateWinner(squares);
 
     if (winner) {
-      playSound("win");
+      playSound(win);
     } else {
       const lastMove = squares.filter(Boolean).length;
       if (lastMove > 0) {
-        playSound(xIsNext ? "o" : "x"); // لاحظ أن الدور تغير
+        playSound(xIsNext ? o : x); // لاحظ أن الدور تغير
       }
     }
   }, [squares]);
