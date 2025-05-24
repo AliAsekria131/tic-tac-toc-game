@@ -2,14 +2,6 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
 
-import { db, ref, set, onValue, update } from "./firebase"; // استيراد Firebase
-
-const roomId = "room1"; // اسم الغرفة (يمكنك تغييره لاحقًا)
-const roomRef = ref(db, `rooms/${roomId}`);
-
-
-
-
 const sounds = {
   x: new Audio("/sound/x.mp3"),
   o: new Audio("/sound/o.mp3"),
@@ -38,21 +30,6 @@ function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
 
-  useEffect(() => {
-    const unsubscribe = onValue(roomRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        setSquares(data.squares || Array(9).fill(null));
-        setXIsNext(data.xIsNext ?? true);
-      }
-    });
-  
-    return () => unsubscribe();
-  }, []);
-
-
-
-
   function playSound(type) {
     const audio = type;
     audio.play();
@@ -73,25 +50,21 @@ function Board() {
   }, [squares]);
 
   function handleClick(i) {
-    if (squares[i] || calculateWinner(squares)) return;
-  
+    if (squares[i] || calculateWinner(squares)) {
+      return;
+    }
+
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? "X" : "O";
-  
-    update(roomRef, {
-      squares: nextSquares,
-      xIsNext: !xIsNext,
-    });
+
+    setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
-  
 
   function resetGame() {
-    update(roomRef, {
-      squares: Array(9).fill(null),
-      xIsNext: true,
-    });
+    setSquares(Array(9).fill(null));
+    setXIsNext(true);
   }
-  
 
   const winner = calculateWinner(squares);
   let status;
