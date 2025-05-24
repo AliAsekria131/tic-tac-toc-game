@@ -1,9 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
-import o from "../public/sound/o.mp3";
-import x from "../public/sound/x.mp3";
-import win from "../public/sound/win.mp3";
+import osound from "../public/sound/o.mp3";
+import xsound from "../public/sound/x.mp3";
+import winsound from "../public/sound/win.mp3";
+
+const sounds = {
+  x: new Audio({xsound}),
+  o: new Audio({osound}),
+  win: new Audio({winsound}),
+};
+
+// تحميل الأصوات مسبقًا
+Object.values(sounds).forEach((audio) => {
+  audio.load(); // يبدأ تحميل الملف
+});
 
 function Square({ value, onSquareClick, className }) {
   const markclass = value === "X" ? "x-mark" : value === "O" ? "o-mark" : " ";
@@ -23,7 +34,7 @@ function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function playSound(type) {
-    const audio = new Audio(type);
+    const audio = type;
     audio.play();
     console.log(audio);
   }
@@ -32,11 +43,11 @@ function Board() {
     const winner = calculateWinner(squares);
 
     if (winner) {
-      playSound(win);
+      playSound(sounds.win);
     } else {
       const lastMove = squares.filter(Boolean).length;
       if (lastMove > 0) {
-        playSound(xIsNext ? o : x); // لاحظ أن الدور تغير
+        playSound(xIsNext ? sounds.o : sounds.x); // لاحظ أن الدور تغير
       }
     }
   }, [squares]);
