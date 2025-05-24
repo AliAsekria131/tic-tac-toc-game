@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import "./App.css";
 
 const sounds = {
-  x: new Audio("../public/sound/x.mp3"),
-  o: new Audio("../public/sound/o.mp3"),
+  x: new Audio("/sound/x.mp3"),
+  o: new Audio("/sound/o.mp3"),
   win: new Audio("../public/sound/win.mp3"),
 };
 
