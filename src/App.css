@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Fredoka", sans-serif;
+}
+body {
+  background-color: #0a0142;
+  font-family: "Fredoka", sans-serif;
+}
+
+.game {
+  text-align: center;
+  max-width: 320px;
+  margin: auto;
+}
+
+.game-board {
+  text-align: right;
+  padding: 60px 0;
+}
+
+hr {
+  margin-bottom: 30px;
+}
+.status {
+  margin-bottom: 10px;
+  font-size: 30px;
+  color: wheat;
+  text-align: right;
+}
+.board-row {
+  display: flex;
+  justify-content: center;
+}
+
+.square {
+  background-color: transparent;
+  border: 1px solid;
+  width: 80px;
+  height: 80px;
+}
+.lineup {
+  background-color: white;
+}
+
+.square {
+  font-size: xxx-large;
+}
+
+/* نحذف الحدود الزائدة من الحواف */
+.square.top {
+  border-top: none;
+}
+.square.bottom {
+  border-bottom: none;
+}
+.square.left {
+  border-left: none;
+}
+.square.right {
+  border-right: none;
+}
+
+/* القاعدة العامة */
+.square {
+  width: 100px;
+  color: white;
+  height: 100px;
+  font-size: 48px;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Fredoka", sans-serif;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+/* تأثير الوميض لـ X */
+.x-mark {
+  color: #ff4d4d;
+  animation: flashX 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 20px #ff0000;
+}
+
+/* تأثير الوميض لـ O */
+.o-mark {
+  color: #4d79ff;
+  text-shadow: 0 0 20px #0044ff;
+  animation: flashO 1s ease-in-out infinite alternate;
+}
+
+.reset-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #225f24;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.reset-button:hover {
+  background-color: #45a049;
+}
