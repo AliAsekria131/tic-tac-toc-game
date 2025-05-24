@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
-import o from "../public/sound/o.wav";
-import x from "../public/sound/x.wav";
-import win from "../public/sound/win.wav";
+import o from "../public/sound/o.mp3";
+import x from "../public/sound/x.mp3";
+import win from "../public/sound/win.mp3";
 
 function Square({ value, onSquareClick, className }) {
   const markclass = value === "X" ? "x-mark" : value === "O" ? "o-mark" : " ";
