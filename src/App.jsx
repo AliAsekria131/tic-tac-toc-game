@@ -21,7 +21,7 @@ function Board() {
   function playSound(type) {
     const audio = new Audio(`/public/sound/${type}.mp3`);
     audio.play();
-    console.log(audio)
+    console.log(audio);
   }
 
   useEffect(() => {
@@ -29,7 +29,6 @@ function Board() {
 
     if (winner) {
       playSound("win");
-      
     } else {
       const lastMove = squares.filter(Boolean).length;
       if (lastMove > 0) {
@@ -42,7 +41,7 @@ function Board() {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
-  
+
     const nextSquares = squares.slice();
     nextSquares[i] = xIsNext ? "X" : "O";
 
