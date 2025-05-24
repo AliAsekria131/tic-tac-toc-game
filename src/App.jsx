@@ -19,7 +19,7 @@ function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function playSound(type) {
-    const audio = new Audio(`/sound/${type}.mp3`);
+    const audio = new Audio(`/sound/${type}.wav`);
     audio.play();
     console.log(audio);
   }
