@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "./App.css";
-import osound from "../public/sound/o.mp3";
-import xsound from "../public/sound/x.mp3";
-import winsound from "../public/sound/win.mp3";
 
 const sounds = {
-  x: new Audio({xsound}),
-  o: new Audio({osound}),
-  win: new Audio({winsound}),
+  x: new Audio("../public/sound/x.mp3"),
+  o: new Audio("../public/sound/o.mp3"),
+  win: new Audio("../public/sound/win.mp3"),
 };
 
 // تحميل الأصوات مسبقًا
