@@ -5,7 +5,7 @@ import "./App.css";
 const sounds = {
   x: new Audio("/sound/x.mp3"),
   o: new Audio("/sound/o.mp3"),
-  win: new Audio("../public/sound/win.mp3"),
+  win: new Audio("/sound/win.mp3"),
 };
 
 // تحميل الأصوات مسبقًا
