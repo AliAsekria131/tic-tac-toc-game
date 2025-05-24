@@ -21,6 +21,7 @@ function Board() {
   function playSound(type) {
     const audio = new Audio(`/public/sound/${type}.mp3`);
     audio.play();
+    console.log(audio)
   }
 
   useEffect(() => {
